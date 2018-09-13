@@ -13,7 +13,7 @@ exports[`should render ExpenseItem correctly with an Expense 1`] = `
   </Link>
   <p>
     Amount: 
-    51200
+    $51,200.00
   </p>
   <p>
     Date: 
