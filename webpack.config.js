@@ -1,7 +1,8 @@
 const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-module.exports = {
-  mode: 'none',
+var config = {
+  mode: 'development',
   entry: './src/app.js',
   output: {
     path: path.join(__dirname, 'public'),
@@ -16,11 +17,22 @@ module.exports = {
       },
       {
         test: /\.s?css$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader'
-        ]
+        use: ExtractTextPlugin.extract({
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                sourceMap: true
+              }
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true
+              }
+            }
+          ]
+        })
       }
     ]
   },
@@ -28,5 +40,19 @@ module.exports = {
     contentBase: path.join(__dirname, 'public'),
     historyApiFallback: true
   },
-  devtool: 'cheap-module-eval-source-map'
-}
+  plugins: [
+    new ExtractTextPlugin("styles.css")
+  ]
+};
+
+module.exports = (env, argv) => {
+  if (argv.mode === 'production') {
+    config.devtool = "source-map";
+  } else {
+    config.devtool = "inline-source-map";
+  }
+  if (config.mode === 'production') {
+    config.devtool = "source-map";
+  }
+  return config;
+};
