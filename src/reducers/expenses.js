@@ -2,6 +2,8 @@ const defaultExpensesState = [];
 
 const expensesReducer = (state = defaultExpensesState, action) => {
   switch (action.type) {
+    case "SET_EXPENSES":
+      return action.expenses;
     case "ADD_EXPENSE":
       return [...state, action.newExpense];
     case "EDIT_EXPENSE":

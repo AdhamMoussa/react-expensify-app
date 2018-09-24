@@ -70,7 +70,10 @@ test('should call onSubmit props for valid form submission', () => {
     preventDefault: () => {}
   });
   delete expenses[1].id;
-  expect(onSubmitSpy).toHaveBeenLastCalledWith(expenses[1]);
+  expect(onSubmitSpy).toHaveBeenLastCalledWith({
+    ...expenses[1],
+    createdAt: expenses[1].createdAt.valueOf()
+  });
 });
 
 test('should set createdAt state on date change', () => {

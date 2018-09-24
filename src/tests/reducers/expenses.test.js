@@ -74,3 +74,11 @@ test('should NOT remove an expense WHEN ID NOT FOUND', () => {
   expect(state).toEqual(demoExpensesState);
 });
 
+test('should set expenses with provided data', () => {
+  const state = expensesReducer([], {
+    type: 'SET_EXPENSES',
+    expenses: demoExpensesState
+  });
+  expect(state).toEqual(demoExpensesState);
+});
+

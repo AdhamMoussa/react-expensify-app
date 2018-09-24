@@ -1,4 +1,15 @@
-import { addExpense, editExpense, removeExpense } from "../../actions/expenses";
+import configureMockStore from "redux-mock-store";
+import {
+  addExpense,
+  editExpense,
+  removeExpense,
+  setExpenses
+} from "../../actions/expenses";
+import thunk from "redux-thunk";
+import expenses from '../fixtures/demoExpenses';
+
+const middleware = [thunk];
+const mockStore = configureMockStore(middleware);
 
 test("should setup remove expense action object", () => {
   const action = removeExpense("a1b2");
@@ -28,6 +39,7 @@ test("should setup edit expense action object", () => {
 });
 test("should setup add expense action object with provided data", () => {
   const data = {
+    id: "lkjn3e456l",
     description: "description text",
     amount: 100,
     note: "note text",
@@ -37,25 +49,15 @@ test("should setup add expense action object with provided data", () => {
   expect(action).toEqual({
     type: "ADD_EXPENSE",
     newExpense: {
-      id: expect.any(String),
       ...data
     }
   });
 });
 
-test('should setup add expense action object with provided data', () => {
-  const data = {
-    description: "",
-    amount: 0,
-    note: "",
-    createdAt: 0
-  };
-  const action = addExpense();
+test('should setup set expenses action object with provided data', () => {
+  const action = setExpenses(expenses);
   expect(action).toEqual({
-    type: 'ADD_EXPENSE',
-    newExpense: {
-      id: expect.any(String),
-      ...data
-    }
+    type: 'SET_EXPENSES',
+    expenses
   });
 });

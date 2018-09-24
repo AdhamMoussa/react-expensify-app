@@ -1,34 +1,63 @@
-import uuid from "uuid";
+import database from "../firebase/firebase";
+import moment from 'moment';
 
-export const addExpense = ({
-  description = "",
-  amount = 0,
-  note = "",
-  createdAt = 0
-} = {}) => {
+export const addExpense = (expense) => {
   return {
     type: "ADD_EXPENSE",
     newExpense: {
-      id: uuid(),
-      description,
-      amount,
-      note,
-      createdAt
+      ...expense
     }
+  };
+};
+
+export const startAddExpense = (expenseData = {}) => {
+  return (dispatch) => {
+    const { description = "", amount = 0, note = "", createdAt = 0 } = expenseData;
+    const expense = { description, amount, note, createdAt };
+    return database.ref('expenses').push(expense).then((ref) => {
+      dispatch(addExpense({
+        id: ref.key,
+        ...expense
+      }));
+    });
   };
 };
 
 export const editExpense = (id, updatedData) => {
   return {
-    type: 'EDIT_EXPENSE',
+    type: "EDIT_EXPENSE",
     id,
     updatedData
   };
 };
 
-export const removeExpense = (id) => {
+export const removeExpense = id => {
   return {
-    type: 'REMOVE_EXPENSE',
+    type: "REMOVE_EXPENSE",
     id
   };
 };
+
+export const setExpenses = (expenses) => {
+  return {
+    type: 'SET_EXPENSES',
+    expenses
+  };
+};
+
+export const startSetExpenses = () => {
+  return (dispatch) => {
+    return database.ref('expenses').once('value').then((snapshot) => {
+      const expenses = [];
+      snapshot.forEach((child) => {
+        expenses.push({
+          id: child.key,
+          ...child.val(),
+          createdAt: moment(child.val().createdAt)
+        });
+      });
+      dispatch(setExpenses(expenses));
+    });
+  };
+};
+
