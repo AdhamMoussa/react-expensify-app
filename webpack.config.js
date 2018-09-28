@@ -9,6 +9,12 @@ var config = {
     path: path.join(__dirname, 'public', 'dist'),
     filename: 'bundle.js'
   },
+  resolve: {
+    modules: [
+    path.resolve('./src'),
+    'node_modules',
+    ],
+  },
   module: {
     rules: [
       {
