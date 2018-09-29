@@ -1,23 +1,75 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render ExpensesListHeader correctly with expenses 1`] = `
-<div>
-  <p>
-    You have 
-    4
-     expense(s), totalling
-    $1,401.00
-  </p>
+<div
+  className="page-head"
+>
+  <div
+    className="wrapper"
+  >
+    <h2>
+      You have
+       
+      <span>
+        4
+         
+        expenses
+      </span>
+      , totalling
+       
+      <span>
+        $1,401.00
+      </span>
+    </h2>
+    <Connect(FiltersControls) />
+    <div
+      className="page-head__add-btn"
+    >
+      <Link
+        className="button"
+        replace={false}
+        to="/create"
+      >
+        Add Expense
+      </Link>
+    </div>
+  </div>
 </div>
 `;
 
 exports[`should render ExpensesListHeader correctly without expenses 1`] = `
-<div>
-  <p>
-    You have 
-    0
-     expense(s), totalling
-    $0.00
-  </p>
+<div
+  className="page-head"
+>
+  <div
+    className="wrapper"
+  >
+    <h2>
+      You have
+       
+      <span>
+        0
+         
+        expenses
+      </span>
+      , totalling
+       
+      <span>
+        $0.00
+      </span>
+    </h2>
+    <Connect(FiltersControls) />
+    <div
+      className="page-head__add-btn"
+    >
+      <Link
+        className="button"
+        replace={false}
+        to="/create"
+      >
+        Add Expense
+      </Link>
+    </div>
+  </div>
 </div>
 `;

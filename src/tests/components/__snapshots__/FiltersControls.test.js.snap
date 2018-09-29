@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render FiltersControls with default values correctly 1`] = `
-<div>
+<div
+  className="filters-controls"
+>
   <input
     id="filter-text-input"
     onChange={[Function]}
@@ -9,9 +11,6 @@ exports[`should render FiltersControls with default values correctly 1`] = `
     type="text"
     value=""
   />
-  <label>
-    Sort By
-  </label>
   <select
     id="sort-select"
     onChange={[Function]}
@@ -111,7 +110,7 @@ exports[`should render FiltersControls with default values correctly 1`] = `
     reopenPickerOnClearDates={false}
     required={false}
     screenReaderInputMessage=""
-    showClearDates={false}
+    showClearDates={true}
     showDefaultInputIcon={false}
     small={false}
     startDate={null}
@@ -127,7 +126,9 @@ exports[`should render FiltersControls with default values correctly 1`] = `
 `;
 
 exports[`should render FiltersControls with provided values correctly 1`] = `
-<div>
+<div
+  className="filters-controls"
+>
   <input
     id="filter-text-input"
     onChange={[Function]}
@@ -135,9 +136,6 @@ exports[`should render FiltersControls with provided values correctly 1`] = `
     type="text"
     value="bill"
   />
-  <label>
-    Sort By
-  </label>
   <select
     id="sort-select"
     onChange={[Function]}
@@ -237,7 +235,7 @@ exports[`should render FiltersControls with provided values correctly 1`] = `
     reopenPickerOnClearDates={false}
     required={false}
     screenReaderInputMessage=""
-    showClearDates={false}
+    showClearDates={true}
     showDefaultInputIcon={false}
     small={false}
     startDate={"1970-01-01T00:00:00.000Z"}

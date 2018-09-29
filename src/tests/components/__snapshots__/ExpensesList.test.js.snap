@@ -1,46 +1,84 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render ExpensesList correctly WITH EXPENSES 1`] = `
-<div>
-  <Connect(ExpensesListHeader) />
-  <Connect(FiltersControls) />
-  <div>
-    <ExpenseItem
-      amount={51200}
-      createdAt={"1970-01-01T00:00:00.000Z"}
-      description="gas"
-      id="1"
-      key="1"
-      note=""
-    />
-    <ExpenseItem
-      amount={190}
-      createdAt={"1969-12-31T23:59:59.000Z"}
-      description="water"
-      id="2"
-      key="2"
-      note=""
-    />
-    <ExpenseItem
-      amount={4200}
-      createdAt={"1970-01-01T00:00:00.900Z"}
-      description="utility"
-      id="3"
-      key="3"
-      note=""
-    />
+<div
+  className="expenses-list"
+>
+  <div
+    className="wrapper"
+  >
+    <table>
+      <thead>
+        <tr>
+          <td>
+            Expenses
+          </td>
+          <td>
+            Amount
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <ExpenseItem
+          amount={51200}
+          createdAt={"1970-01-01T00:00:00.000Z"}
+          description="gas"
+          id="1"
+          key="1"
+          note=""
+        />
+        <ExpenseItem
+          amount={190}
+          createdAt={"1969-12-31T23:59:59.000Z"}
+          description="water"
+          id="2"
+          key="2"
+          note=""
+        />
+        <ExpenseItem
+          amount={4200}
+          createdAt={"1970-01-01T00:00:00.900Z"}
+          description="utility"
+          id="3"
+          key="3"
+          note=""
+        />
+      </tbody>
+    </table>
   </div>
 </div>
 `;
 
 exports[`should render ExpensesList correctly WITHOUT EXPENSES 1`] = `
-<div>
-  <Connect(ExpensesListHeader) />
-  <Connect(FiltersControls) />
-  <div>
-    <p>
-      No Expenses
-    </p>
+<div
+  className="expenses-list"
+>
+  <div
+    className="wrapper"
+  >
+    <table>
+      <thead>
+        <tr>
+          <td>
+            Expenses
+          </td>
+          <td>
+            Amount
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <p
+              className="no-expenses"
+            >
+              No Expenses
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 `;

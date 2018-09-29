@@ -1,0 +1,25 @@
+.page-head {
+  background-color: #e6edf2;
+  padding: $l-size 0;
+  h2 {
+    font-weight: 300;
+    &:not(:last-child) {
+      margin-bottom: $s-size;
+    }
+    span {
+      font-weight: bold;
+    }
+  }
+  .filters-controls {
+    margin-bottom: $s-size;
+  }
+  &__add-btn {
+    a.button {
+      padding: 10px $m-size;
+    }
+  }
+}
+
+.page-body {
+  padding: $l-size 0;
+}

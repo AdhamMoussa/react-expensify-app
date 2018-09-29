@@ -1,0 +1,46 @@
+.expenses-list {
+  padding: $m-size 0;
+  table {
+    width: 100%;
+    border: 1px solid #dbdbdb;
+    thead {
+      tr {
+        background-color: $dark-grey;
+        color: #fff;
+        td {
+          padding: 10px $s-size;
+          font-size: 1.2rem;
+          font-weight: bold;
+        }
+      }
+    }
+    tbody {
+      .expenses-list__item {
+        &:nth-child(odd) {
+          background-color: #e6edf2;
+        }
+        &:nth-child(even) {
+          background-color: #ffffff;
+        }
+        td {
+          padding: 10px $s-size;
+          font-size: 1.2rem;
+        }
+        &-description {
+          text-decoration: none;
+          color: $blue;
+          word-break: break-all;
+        }
+        &-date {
+          font-size: .9rem;
+        }
+        &-amount {
+          font-weight: bold;
+        }
+      }
+      .no-expenses {
+        padding: 10px $s-size;
+      }
+    }
+  }
+}

@@ -14,8 +14,8 @@ class ExpenseForm extends React.Component {
       ? this.props.editedExpense.createdAt
       : moment(),
     datePickerFocused: false,
-    descriptionError: null,
-    amountError: null
+    descriptionError: false,
+    amountError: false
   };
   handleDescriptionChange = e => {
     const description = e.target.value;
@@ -35,24 +35,24 @@ class ExpenseForm extends React.Component {
     // handle description error
     if (!this.state.description) {
       this.setState(() => ({
-        descriptionError: "Please insert a description of your expense"
+        descriptionError: true
       }));
     } else if (this.state.description && this.state.descriptionError) {
-      this.setState(() => ({ descriptionError: null }));
+      this.setState(() => ({ descriptionError: false }));
     }
     // handle amount error
     if (!this.state.amount) {
       this.setState(() => ({
-        amountError: "Please insert an amount of your expense"
+        amountError: true
       }));
     } else if (this.state.amount && this.state.amountError) {
-      this.setState(() => ({ amountError: null }));
+      this.setState(() => ({ amountError: false }));
     }
     // Submit
     if (this.state.description && this.state.amount) {
       this.setState(() => ({
-        descriptionError: null,
-        amountError: null
+        descriptionError: false,
+        amountError: false
       }));
       this.props.onSubmitHandler({
         description: this.state.description,
@@ -65,52 +65,79 @@ class ExpenseForm extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleFormSubmit}>
-          <input
-            id="description-input"
-            type="text"
-            name="description"
-            value={this.state.description}
-            onChange={this.handleDescriptionChange}
-            placeholder="Expense Description"
-            autoFocus
-          />
-          <br />
-          {this.state.descriptionError && <p>{this.state.descriptionError}</p>}
-          <input
-            id="amount-input"
-            type="text"
-            name="amount"
-            value={this.state.amount}
-            onChange={this.handleAmountChange}
-            placeholder="Amount"
-          />
-          <br />
-          {this.state.amountError && <p>{this.state.amountError}</p>}
-          <SingleDatePicker
-            date={this.state.createdAt}
-            onDateChange={date => {
-              if (date) {
-                this.setState({ createdAt: date });
+        <form className="form" onSubmit={this.handleFormSubmit}>
+          <div className="form__group">
+            <input
+              id="description-input"
+              type="text"
+              name="description"
+              value={this.state.description}
+              onChange={this.handleDescriptionChange}
+              placeholder="Expense Description"
+              className="form__input"
+              autoFocus
+            />
+            <p
+              className={
+                this.state.descriptionError
+                  ? "error-msg error-msg--visible"
+                  : "error-msg"
               }
-            }}
-            focused={this.state.datePickerFocused}
-            onFocusChange={({ focused }) =>
-              this.setState({ datePickerFocused: focused })
-            }
-            numberOfMonths={1}
-            isOutsideRange={day => false}
-          />
-          <br />
-          <textarea
-            id="note-input"
-            name="note"
-            value={this.state.note}
-            onChange={this.handleNoteChange}
-            placeholder="Expense Note"
-          />
-          <br />
-          <button type="submit">Submit</button>
+            >
+              Please insert a valid description of your expense
+            </p>
+          </div>
+          <div className="form__group">
+            <input
+              id="amount-input"
+              type="text"
+              name="amount"
+              value={this.state.amount}
+              onChange={this.handleAmountChange}
+              placeholder="Amount"
+              className="form__input"
+            />
+            <p
+              className={
+                this.state.amountError
+                  ? "error-msg error-msg--visible"
+                  : "error-msg"
+              }
+            >
+              Please insert a valid amount of your expense
+            </p>
+          </div>
+          <div className="form__group">
+            <SingleDatePicker
+              date={this.state.createdAt}
+              onDateChange={date => {
+                if (date) {
+                  this.setState({ createdAt: date });
+                }
+              }}
+              focused={this.state.datePickerFocused}
+              onFocusChange={({ focused }) =>
+                this.setState({ datePickerFocused: focused })
+              }
+              numberOfMonths={1}
+              isOutsideRange={day => false}
+            />
+          </div>
+          <div className="form__group">
+            <textarea
+              id="note-input"
+              name="note"
+              value={this.state.note}
+              onChange={this.handleNoteChange}
+              placeholder="Expense Note"
+              className="form__input"
+            />
+          </div>
+          <div className="form__group">
+            <button className="button" type="submit">
+              Submit
+            </button>
+          </div>
         </form>
       </div>
     );

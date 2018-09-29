@@ -1,10 +1,11 @@
 import React from 'react';
 import ExpensesList from './ExpensesList';
+import ExpensesListHeader from './ExpensesListHeader';
 
 const ExpensesDashboardPage = (props) => {
   return (
     <div>
-      <h2>Your Expenses</h2>
+      <ExpensesListHeader />
       <ExpensesList />
     </div>
   )

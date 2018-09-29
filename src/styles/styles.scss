@@ -1,1 +1,13 @@
-@import './global';
+@import './base/variables';
+@import './base/global';
+
+
+@import './components/box-layout';
+@import './components/button';
+@import './components/header';
+@import './components/wrapper';
+@import './components/page';
+@import './components/filters-controls';
+@import './components/expenses-list';
+@import './components/form';
+@import './components/loading';

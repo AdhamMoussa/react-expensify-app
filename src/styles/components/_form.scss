@@ -1,0 +1,27 @@
+.form {
+  &__group {
+    margin-bottom: $s-size;
+  }
+  &__input {
+    font-weight: 200;
+    font-size: 19px;
+    line-height: 24px;
+    color: #484848;
+    background-color: #fff;
+    padding: 11px 11px 9px;
+    border-radius: 2px;
+    border: 1px solid #dbdbdb;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.error-msg {
+  font-size: .9rem;
+  color: #c02323;
+  visibility: hidden;
+  &--visible {
+    visibility: visible;
+  }
+}

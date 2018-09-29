@@ -1,0 +1,19 @@
+.filters-controls {
+  display: flex;
+  align-items: center;
+  input#filter-text-input,
+  select#sort-select {
+    font-weight: 200;
+    font-size: 19px;
+    line-height: 24px;
+    color: #484848;
+    background-color: #fff;
+    padding: 11px 11px 9px;
+    border-radius: 2px;
+    border: 1px solid #dbdbdb;
+    margin-right: $s-size;
+    &:focus {
+      outline: none;
+    }
+  }
+}

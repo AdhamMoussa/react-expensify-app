@@ -1,0 +1,12 @@
+.button {
+  border: none;
+  background-color: $blue;
+  color: #ffffff;
+  font-size: 1.2rem;
+  padding: $s-size $l-size;
+  border-radius: 4px;
+  text-decoration: none;
+  &--red {
+    background-color: #c02323;
+  }
+}

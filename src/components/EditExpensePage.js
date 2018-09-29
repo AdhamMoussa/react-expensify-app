@@ -14,14 +14,26 @@ export const EditExpensePage = props => {
   };
   return (
     <div>
-      <h2>Edit Expense</h2>
-      <ExpenseForm
-        onSubmitHandler={onSubmitHandler}
-        editedExpense={props.expense}
-      />
-      <button id="remove-btn" onClick={onRemoveHandler}>
-        Remove
-      </button>
+      <div className="page-head">
+        <div className="wrapper">
+          <h2>Edit Expense</h2>
+        </div>
+      </div>
+      <div className="page-body">
+        <div className="wrapper">
+          <ExpenseForm
+            onSubmitHandler={onSubmitHandler}
+            editedExpense={props.expense}
+          />
+          <button
+            className="button button--red"
+            id="remove-btn"
+            onClick={onRemoveHandler}
+          >
+            Remove
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

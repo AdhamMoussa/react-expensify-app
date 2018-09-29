@@ -22,8 +22,8 @@ test('should render error for invalid description & amount inputs', () => {
   wrapper.find('form').simulate('submit', {
     preventDefault: () => {}
   });
-  expect(getType(wrapper.state('descriptionError'))).toBe('string');
-  expect(getType(wrapper.state('amountError'))).toBe('string');
+  expect(wrapper.state('descriptionError')).toBe(true);
+  expect(wrapper.state('amountError')).toBe(true);
   expect(wrapper).toMatchSnapshot();
 });
 

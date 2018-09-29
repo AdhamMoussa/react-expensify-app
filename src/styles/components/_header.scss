@@ -1,0 +1,21 @@
+.header {
+  background-color: $dark-grey;
+  padding: $s-size 0;
+  color: #fff;
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__logo {
+    text-decoration: none;
+    h1 {
+      color: #fff;
+    }
+  }
+  .button {
+    background-color: transparent;
+    border-radius: 0;
+    padding: 10px;
+  }
+}

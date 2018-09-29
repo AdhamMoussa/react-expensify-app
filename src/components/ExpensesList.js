@@ -2,22 +2,32 @@ import React from "react";
 import { connect } from "react-redux";
 import getVisibleExpenses from "../selectors/expenses";
 import ExpenseItem from "./ExpenseItem";
-import FiltersControls from "./FiltersControls";
-import ExpensesListHeader from './ExpensesListHeader';
 
 export const ExpensesList = props => {
   return (
-    <div>
-      <ExpensesListHeader />
-      <FiltersControls />
-      <div>
+    <div className="expenses-list">
+      <div className="wrapper">
+      <table>
+        <thead>
+          <tr>
+            <td>Expenses</td>
+            <td>Amount</td>
+          </tr>
+        </thead>
+        <tbody>
         {props.expenses.length === 0 ? (
-          <p>No Expenses</p>
+          <tr>
+            <td>
+              <p className="no-expenses">No Expenses</p>
+            </td>
+          </tr>
         ) : (
           props.expenses.map(exp => {
             return <ExpenseItem {...exp} key={exp.id} />;
           })
         )}
+        </tbody>
+      </table>
       </div>
     </div>
   );

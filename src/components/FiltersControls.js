@@ -24,7 +24,7 @@ export class FiltersControls extends React.Component {
   };
   render() {
     return (
-      <div>
+      <div className="filters-controls">
         <input
           id="filter-text-input"
           type="text"
@@ -32,7 +32,6 @@ export class FiltersControls extends React.Component {
           onChange={this.handleFilterTextChange}
           placeholder="Search Expenses..."
         />
-        <label>Sort By</label>
         <select
           id="sort-select"
           value={this.props.filters.sortBy}
@@ -51,6 +50,7 @@ export class FiltersControls extends React.Component {
           onFocusChange={focusedInput => this.setState({ focusedInput })}
           numberOfMonths={1}
           isOutsideRange={(day) => false}
+          showClearDates={true}
         />
       </div>
     );
