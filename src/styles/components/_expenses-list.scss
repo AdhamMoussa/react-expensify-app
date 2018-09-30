@@ -26,13 +26,16 @@
           padding: 10px $s-size;
           font-size: 1.2rem;
         }
-        &-description {
+        &-link {
           text-decoration: none;
+        }
+        &-description {
           color: $blue;
           word-break: break-all;
         }
         &-date {
           font-size: .9rem;
+          color: $dark-grey;
         }
         &-amount {
           font-weight: bold;

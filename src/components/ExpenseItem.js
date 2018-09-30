@@ -7,10 +7,10 @@ const ExpenseItem = props => {
   return (
     <tr className="expenses-list__item">
       <td>
-        <Link className="expenses-list__item-description" to={`/edit/${props.id}`}>
-          <h3>{props.description}</h3>
+        <Link className="expenses-list__item-link" to={`/edit/${props.id}`}>
+          <h3 className="expenses-list__item-description">{props.description}</h3>
+          <p className="expenses-list__item-date">{moment(props.createdAt).format("MMM Do, YYYY")}</p>
         </Link>
-        <p className="expenses-list__item-date">{moment(props.createdAt).format("MMM Do, YYYY")}</p>
       </td>
       <td>
         <p className="expenses-list__item-amount">{numeral(props.amount).format("$0,0.00")}</p>

@@ -1,0 +1,25 @@
+@mixin xSmallUp {
+  @media only screen and (min-width:400px) {
+      @content;
+  }
+}
+@mixin smallUp {
+  @media only screen and (min-width:576px) {
+      @content;
+  }
+}
+@mixin mediumUp {
+  @media only screen and (min-width:768px) {
+      @content;
+  }
+}
+@mixin largeUp {
+  @media only screen and (min-width:992px) {
+      @content;
+  }
+}
+@mixin xLargeUp {
+  @media only screen and (min-width:1200px) {
+      @content;
+  }
+}

@@ -1,6 +1,10 @@
 .filters-controls {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  @include largeUp {
+    flex-direction: row;
+    align-items: center;
+  }
   input#filter-text-input,
   select#sort-select {
     font-weight: 200;
@@ -11,9 +15,17 @@
     padding: 11px 11px 9px;
     border-radius: 2px;
     border: 1px solid #dbdbdb;
-    margin-right: $s-size;
     &:focus {
       outline: none;
+    }
+  }
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: $s-size;
+      @include largeUp {
+        margin-right: $s-size;
+        margin-bottom: 0;
+      }
     }
   }
 }
